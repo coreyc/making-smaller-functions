@@ -43,4 +43,32 @@ describe('joinAndFormat()', () => {
             financialInfo: {zipCode: 31680, attributes: {spending: 'low', creditScoreAvg: 730}}
         }])
     })
+
+    it('should designate people as 50 and above', () => {
+        const people = [
+            {person: 'Tom', age: 50, zipCode: 21345}
+        ]
+
+        const financialAttributes = [
+            {zipCode: 21345, attributes: {spending: 'high', creditScoreAvg: 750}}
+        ]
+
+        const formatted = joinAndFormat(people, financialAttributes)
+
+        expect(formatted.pop().ageGroup).to.equal('50 and above')
+    })
+
+    it('should designate people as 49 and below', () => {
+        const people = [
+            {person: 'Tom', age: 49, zipCode: 21345}
+        ]
+
+        const financialAttributes = [
+            {zipCode: 21345, attributes: {spending: 'high', creditScoreAvg: 750}}
+        ]
+
+        const formatted = joinAndFormat(people, financialAttributes)
+
+        expect(formatted.pop().ageGroup).to.equal('49 and below')
+    })
 })
