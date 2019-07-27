@@ -4,8 +4,8 @@ function joinAndFormat(people, financialAttributes) {
     return people.map(person => {
         return {
             person,
-            ageGroup: (person.age && person.age >= 50) ? '50 and up' : '49 and below',
-            meta: financialAttributes.find(attribute => attribute.zip === person.zip)
+            ageGroup: (person.age && person.age >= 50) ? '50 and above' : '49 and below',
+            financialInfo: financialAttributes.find(attribute => person.zipCode === attribute.zipCode)
         }
     })
 }

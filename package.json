@@ -9,6 +9,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "latest"
+    "mocha": "latest",
+    "deep-equal-in-any-order": "latest"
   }
 }
